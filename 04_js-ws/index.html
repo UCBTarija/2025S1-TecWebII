@@ -1,0 +1,49 @@
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Productos</title>
+</head>
+<script>
+    document.addEventListener( 'DOMContentLoaded', ( event ) => {
+        let data = [];
+        let tblData = document.getElementById( 'tbl-data' );
+        for ( let i = 0; i < 10; i++ ) {
+            data.push( {
+                id: i,
+                codigo: `COD-${ i }`,
+                nombre: `Producto ${ i }`
+            } );
+        }
+
+        data.forEach( ( item ) => {
+            let tr = document.createElement( 'tr' );
+            let tdId = document.createElement( 'td' );
+            let tdCodigo = document.createElement( 'td' );
+            let tdNombre = document.createElement( 'td' );
+            tdId.innerText = item.id;
+            tdCodigo.innerText = item.codigo;
+            tdNombre.innerText = item.nombre;
+            tr.appendChild( tdId );
+            tr.appendChild( tdCodigo );
+            tr.appendChild( tdNombre );
+            tblData.appendChild( tr );
+        } );
+    } );
+</script>
+
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Código</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody id="tbl-data">
+        </tbody>
+    </table>
+</body>
+
+</html>

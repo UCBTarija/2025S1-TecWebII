@@ -1,0 +1,41 @@
+<html>
+
+<head>
+    <title>Animales</title>
+
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        h1 {
+            color: white;
+            background-color: blue;
+        }
+
+        #titulo2 {
+            font-size: 40px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1 style="background-color:red;" class="grade">Gato</h1>
+    <h1 class="verde grande">Otro título</h1>
+    <h1 id="titulo2">Uno más</h1>
+
+    <img src="gato.jpeg">
+    <div>
+        <button onclick="saludar()">Cambiar Color</button>
+    </div>
+
+    <script>
+        function saludar() {
+            let tit2 = document.getElementById('titulo2');
+            tit2.innerText = 'Hola mundo..';
+        }
+    </script>
+
+    <p>Texto en <b style="background-color:yellow" class="verde">negrita</b> linea </p>
+
+</body>
+
+</html>

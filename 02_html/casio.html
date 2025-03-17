@@ -1,0 +1,44 @@
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <script type="text/javascript" src="casio.js">
+        </script>
+    </head>
+    <body>
+        <table border="1" style="width: 200px;">
+            <tr>
+                <td colspan="4">
+                    <input type="number" id="display" style="width: 100%;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">Operador</td>
+                <td><input type="text" id="operador" style="width: 40px"> </td>
+            </tr>
+            <tr>
+                <td><button onclick="adcionarNum(7)">7</button></td>
+                <td><button onclick="adcionarNum(8)">8</button></td>
+                <td><button onclick="adcionarNum(9)">9</button></td>
+                <td><button onclick="adcionarOp('+')">+</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="adcionarNum(4)">4</button></td>
+                <td><button onclick="adcionarNum(5)">5</button></td>
+                <td><button onclick="adcionarNum(6)">6</button></td>
+                <td><button onclick="adcionarOp('-')">-</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="adcionarNum(1)">1</button></td>
+                <td><button onclick="adcionarNum(2)">2</button></td>
+                <td><button onclick="adcionarNum(3)">3</button></td>
+                <td><button onclick="adcionarOp('*')">*</button></td>
+            </tr>
+            <tr>
+                <td><button onclick="adcionarNum(0)">0</button></td>
+                <td><button onclick="calcular()">=</button></td>
+                <td><button onclick="limpiar()">C</button></td>
+                <td><button onclick="adicionarOp('/')">/</button></td>
+            </tr>
+        </table>
+    </body>
+</html>
