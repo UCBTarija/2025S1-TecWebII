@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <script>
+
+        function cargarDatos() {
+            const url = "http://127.0.0.1:5000/articulos-api";
+            
+            fetch(url)
+                .then((response) => {
+                    return response.json(); 
+                })
+                .then(data => {
+                    data.forEach(articulo => {
+                        const tr = document.createElement("tr");
+                        tr.innerHTML = `
+                            <td>${articulo.id}</td>
+                            <td>${articulo.codigo}</td>
+                            <td>${articulo.nombre}</td>
+                        `;
+                        document.getElementById("articulos").appendChild(tr);
+                    });
+                   
+                });
+        }    
+
+
+        cargarDatos();
+    </script>
+</head>
+<body>
+    <h1>Articulos</h1>
+    <div id="articulos"></div>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Codigo</th>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody id="articulos">
+            
+        </tbody>
+    </table>
+</body>
+
+</html>
