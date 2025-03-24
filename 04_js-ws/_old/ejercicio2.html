@@ -1,0 +1,38 @@
+<html>
+
+<head>
+    <script>
+        const empleados = [
+            {
+                id: 1,
+                nombre: 'Juan',
+            },
+            {
+                id: 2,
+                nombre: 'Pedro',
+            },
+            {
+                id: 3,
+                nombre: 'María',
+            },
+        ];
+
+        const getEmpleado = function ( id ) {
+            return new Promise( ( resolve, reject ) => {                
+                empleado = empleados.find( empleado => empleado.id === id );
+
+                ( empleado )
+                    ? resolve( empleado )
+                    : reject( 'No existe el empleado' );
+            } );
+        }
+
+        getEmpleado( 5 )
+            .then( empleado => {
+                console.log( empleado );
+            } );
+
+    </script>
+</head>
+
+</html>

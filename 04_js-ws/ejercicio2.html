@@ -1,0 +1,68 @@
+<html>
+
+<head>
+    <script>
+
+        const empleados = [
+            {
+                id: 1,
+                nombre: 'Juan',
+            },
+            {
+                id: 2,
+                nombre: 'Pedro',
+            },
+            {
+                id: 3,
+                nombre: 'Ana',
+            },
+        ];
+
+        const factorialSync = (n) => {
+            return (n === 0 || n === 1) ? 1 : n * factorialSync(n - 1);
+        };
+
+        const factorial = async (n) => {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const result = (n === 0 || n === 1) ? 1 : n * factorialSync(n - 1);
+                    resolve(result);
+                }, 3000);
+            });
+        };
+
+        const getEmpleado = async ( id ) => {
+            return new Promise( ( resolve, reject ) => {
+                const empleado = empleados.find( empleado => empleado.id === id );
+
+                ( empleado )
+                    ? resolve( empleado )
+                    : reject( 'Empleado no encontrado' );
+            } );
+        }
+
+        // llamada a las funciones 
+
+        ejecutar = async ()  => {
+            const result = await factorial(5);
+            console.log(`Factorial: ${result}`);
+
+            getEmpleado( 3 )
+            .then( empleado => {
+                console.log( empleado );
+            } )
+            .catch( err => {
+                console.log( 'Error!' );
+                console.log( err );
+            } );
+        }
+
+        ejecutar();
+        
+        
+
+
+    </script>
+</head>
+
+</html>

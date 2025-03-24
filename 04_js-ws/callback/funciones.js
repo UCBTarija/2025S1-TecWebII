@@ -39,7 +39,7 @@ const getUsuarioAsync = ( id, callback ) => {
 console.log( "iniciando..." );
 console.time( "inicio" );
 
-getUsuarioAsync( 1, ( user ) => {
+getUsuarioAsync( 1, ( user ) => {    
     console.log( "hola " + user.nombre );
 } );
 

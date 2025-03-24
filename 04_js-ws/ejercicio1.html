@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <script>
+
+        const empleados = [
+            {
+                id: 1,
+                nombre: 'Juan',
+            },
+            {
+                id: 2,
+                nombre: 'Pedro',
+            },
+            {
+                id: 3,
+                nombre: 'Ana',
+            },
+        ];
+
+        const sueldos = [
+            {
+                id: 1,
+                sueldo: 1000,
+            },
+            {
+                id: 2,
+                sueldo: 2000,
+            },
+        ];
+
+        const getSueldo = ( id, callback ) => {
+            sueldo = sueldos.find( sueldo => sueldo.id === id );
+            if ( sueldo ) {
+                callback( null, sueldo );
+            } else {
+                callback( 'El sueldo no encontrado' );
+            }
+        }
+
+        const getEmpleado = ( id, callback ) => {
+            empleado = empleados.find( empleado => empleado.id === id );
+            if ( empleado ) {
+                callback( null, empleado );
+            } else {
+                callback( 'Empleado no encontrado' );
+            }
+        }
+
+        getEmpleado( 3, ( err, empleado ) => {
+            if ( err ) {
+                console.log( 'Error!' );
+                return console.log( err );
+            }
+
+            console.log( empleado );
+
+            getSueldo( 3, ( err, sueldo ) => {
+                if ( err ) {
+                    console.log( 'Error!' );
+                    return console.log( err );
+                }
+                console.log( sueldo );
+            } );
+        } );
+
+
+
+    </script>
+</head>
+
+</html>
