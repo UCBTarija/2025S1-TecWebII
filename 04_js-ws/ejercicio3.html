@@ -19,8 +19,9 @@
                             <td>${articulo.nombre}</td>
                         `;
                         document.getElementById("articulos").appendChild(tr);
-                    });
-                   
+                    });                   
+                }).catch(error => {
+                    console.log(error);
                 });
         }    
 

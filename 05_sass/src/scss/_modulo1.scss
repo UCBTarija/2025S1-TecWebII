@@ -1,0 +1,10 @@
+$fondo: 10px;
+
+h2 {
+  font-size: $fondo;
+}
+
+@mixin bode_redondeado {
+  border-radius: 10px;
+  border-color: $fondo;
+}

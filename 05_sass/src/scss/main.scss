@@ -1,0 +1,15 @@
+@import "modulo1";
+$primary: yellow;
+
+
+h1 {
+  color: $primary;
+  font: 1em sans-serif;
+  border: 1px solid $primary;
+  @include bode_redondeado;
+}
+
+.menu {
+    background-color: $primary;
+    color: white;
+}
