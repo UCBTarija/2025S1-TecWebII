@@ -16,7 +16,8 @@ export default {
 
             <button @click="saludar">Saludar {{ contador }} </button>
             <button @click="incrementar">Incrementar</button>            
-            <button @click="contador++">Incrementar Directo</button>            
+            <button @click="contador++">Incrementar Directo</button>  
+            <input type="text" v-model="contador" />          
         </div>
     `,
     methods: {
