@@ -45,12 +45,15 @@ export default {
             this.contador++;
         },
         cargarProductos() {
-            this.productos = [
-                { id: 1, nombre: 'Producto 1' },
-                { id: 2, nombre: 'Producto 2' },
-                { id: 3, nombre: 'Producto 3' },
-                { id: 4, nombre: 'Producto 4' },
-            ];
+            fetch('http://127.0.0.1:5000/articulos-api')
+                .then(response => response.json())
+                .then(data => {
+                    this.productos = data.map(item => ({
+                        id: item.id,
+                        nombre: item.nombre
+                    }));
+                })
+                .catch(error => console.error('Error:', error));
         }
     },
 }
