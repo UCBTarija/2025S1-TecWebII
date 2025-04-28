@@ -1,11 +1,14 @@
 import { ref } from 'vue';
 
 const Productos = {
-    data() {
-        const productos = ref([]);
+    data () {
+        const productos = ref( [] );
         return {
             productos
         }
+    },
+    mounted () {
+        this.cargarProductos();
     },
     template: /*html */`
         <div>
@@ -20,16 +23,19 @@ const Productos = {
         </div>
     `,
     methods: {
-        cargarProductos() {
-            fetch('http://127.0.0.1:5000/articulos-api')
-                .then(response => response.json())
-                .then(data => {
-                    this.productos = data.map(item => ({
+        cargarProductos () {
+            fetch( 'http://127.0.0.1:5000/articulos-api' )
+                .then( response => response.json() )
+                .then( data => {
+                    this.productos = data.map( item => ( {
                         id: item.id,
                         nombre: item.nombre
-                    }));
-                })
-                .catch(error => console.error('Error:', error));
+                    } ) );
+                } )
+                .catch( error => {
+                    console.error( 'Error:', error );
+                    this.$emit( 'error', "No se pudo recuperar la lista de productos" );
+                } );
         }
     },
     props: {
@@ -38,6 +44,9 @@ const Productos = {
             default: 'Productos'
         }
     },
+    emits: {
+        error: 'error'
+    }
 }
 
 export {
